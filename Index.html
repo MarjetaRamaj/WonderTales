@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WonderTales</title>
-<link rel="stylesheet" href="Index.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.1.5/pixi.min.js"></script>
-<script src="Index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"  />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <a href="#" class="brand">
+            WonderTales
+        </a>
 
-    <div class="navbar">
-        <div class="logo">WonderTales</div>
-        <a href="#" >Home</a>
-        <a href="#">About Us</a>
-        <a href="#">FairyTales</a>
-        <a href="#">Contact Us</a>
-    </div>
-    <main>
-        <h1>FairyTales</h1>
-    </main>
+        <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Explore</a>
+            <a href="#">Fairy Tales</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </header>
 
-    <div class="footer">
-        <div class="footer-section">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et arcu facilisis, eu rhoncus mi semper.</p>
-        </div>
-        <div class="footer-section">
-            <h2>Links</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">FairyTales</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h2>Contact Us</h2>
-            <p>Email: contact@wondertales.com</p>
-            <p>Phone: 123-456-7890</p>
-        </div>
-    </div>
 
+    <section class="home">
+        <video src="images/tinkerbell.mp4" muted autoplay loop class="video-slider" playsinline></video>
+        <video src="images/bedtime.mp4" muted autoplay loop class="video-slider" playsinline></video>
+        <video src="images/dream.mp4" muted autoplay loop class="video-slider" playsinline></video>
+
+        <div class="content">
+            <h1>Wonderful, <br>
+                <span>Tales</span>
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec libero nec ligula ullamcorper finibus.
+                 Mauris euismod tortor ut lacus placerat, 
+                ac tempor libero cursus. Quisque vehicula, justo sit amet consequat pulvinar, sem velit elementum nunc, 
+                ac malesuada risus eros vel ante.</p>
+                <a href="#">Read More</a>
+        </div>
+        <div class="media-icons">
+            <a href="#"> <i class=" fa fa-facebook"></i></a>
+            <a href="#"> <i class=" fa fa-twitter"></i></a>
+            <a href="#"> <i class=" fa fa-instagram"></i></a>
+        </div>
+ 
+    </section>
+    <script>
+        const slides = document.querySelectorAll('.video-slider');
+        let currentSlide = 0;
+
+        const showSlide = (index) => {
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+        };
+
+        const nextSlide = () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        };
+
+        setInterval(nextSlide, 5000);
+    </script>
 
 </body>
 </html>
