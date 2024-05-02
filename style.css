@@ -69,9 +69,7 @@ section{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: url('images/dreamy.jpg');
-    background-size: cover; 
-    background-position: center; 
+    overflow: hidden; 
 }
 
 .home .content{
@@ -163,9 +161,11 @@ section{
 
 .video-slider {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    clip-path: circle(0% at 0 50%);
-    opacity: 0; 
+    height: 100%;
+    object-fit: cover;
 }
 
 .video-slider.active {
