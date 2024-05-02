@@ -69,7 +69,7 @@ section{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: url('images/cloud.jpg');
+    background-image: url('images/dreamy.jpg');
     background-size: cover; 
     background-position: center; 
 }
