@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Sofia');
 
 *{
     margin: 0;
@@ -8,6 +9,7 @@
 }
 body{
     background-color: #111222;
+
 }
 
 header{
@@ -250,5 +252,109 @@ header .navigation a:hover::before{
 
 }
 
+.title {
+    text-align: center;
+    margin-top: 50px;
+    color: #fff;
+    position: relative;
+}
+.title span {
+    display: inline-block;
+    position: relative;
+    font-family: "Sofia", sans-serif;
+    font-size: 36px;
+    text-shadow: 1px 1px 1px #ababab;
+}
+.title span::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+.title span:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 
+.wrapper{
+    padding: 10px 10%;
+}
 
+#card-area{
+    padding: 50px 0;
+}
+
+.box-area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.box1{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.box1 img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.overlay{
+    height: 0;
+    width: 100%;
+    background: linear-gradient(transparent, #1c1c1c 58%);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+
+.overlay h3{
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top: 80%;
+    font-family: bebas neue;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.overlay a{
+    margin-top: 10px;
+    color: #1c1c1c;
+    text-decoration: none;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 50px;
+    text-align: center;
+    padding: 5px 15px;
+
+}
+
+.boxLhover img{
+    transform: scale(1.2);
+}
+
+.box1:hover .overlay{
+    height: 100%;
+}
