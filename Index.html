@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WonderTales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"  />
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
     <header>
@@ -44,6 +46,74 @@
         </div>
  
     </section>
- 
+   <section class="sec1">
+    <div class="container">
+        <h2 class="main-title">Our advantages</h2>
+        <div class="contenti">
+        <div class="foto">
+            <img src="images/book.avif"/>
+
+        </div>
+        <div class="text-box">
+            <h3>4000+ books</h3>
+            <p>With over 4000 books to explore, our collection is a treasure trove of fairy tales, folklore, and fantastical stories from around the world. Immerse yourself in the whimsical worlds of princesses, knights, dragons, and fairies as you embark on unforgettable journeys filled with bravery, love, and wonder.</p>
+        </div>
+    </div>
+
+    </section>
+
+    <section class="sec1">
+        <div class="container">
+  
+            <div class="contenti">
+            <div class="foto">
+                <img src="images/travel.jpg"/>
+    
+            </div>
+            <div class="text-box">
+                <h3>Available everywhere</h3>
+                <p>Our magical fairy tale collection is available everywhere! Whether you're nestled in a cozy nook at home or on a grand adventure far and wide, our books are ready to accompany you on your journey.</p>
+            </div>
+        </div>
+    
+        </section>
+
+        
+    <section class="sec1">
+        <div class="container">
+  
+            <div class="contenti">
+            <div class="foto">
+                <img src="images/Family-Friendly2.png"/>
+    
+            </div>
+            <div class="text-box">
+                <h3>Family-Friendly</h3>
+                <p>Our fairy tale collection is perfect for the whole family! Each story is crafted to delight readers of all ages, making them ideal for sharing magical moments together. Whether you're reading to your little ones as they drift off to sleep or enjoying a captivating tale with older family members, our stories are sure to spark imagination and create lasting memories.</p>
+            </div>
+        </div>
+    
+        </section>
+    
+
+    
+
+   
+
+   
+ <script>
+    ScrollReveal({
+        reset: true,
+        distance: '60px',
+        duration: 2500,
+        delay: 400
+
+    });
+
+    ScrollReveal().reveal('.main-title, .section-title',{delay:500, origin: 'left'});
+    ScrollReveal().reveal('.sec1 .foto',{delay:600, origin: 'bottom'});
+    ScrollReveal().reveal('.text-box',{delay:700, origin: 'right'});
+    ScrollReveal().reveal('.media-icons i',{delay:500, origin: 'bottom', interval: 200});
+</script>
 </body>
 </html>
