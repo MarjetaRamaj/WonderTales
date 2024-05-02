@@ -284,6 +284,7 @@ header .navigation a:hover::before{
 
 .wrapper{
     padding: 10px 10%;
+    margin-top: -70px;
 }
 
 #card-area{
@@ -307,6 +308,7 @@ header .navigation a:hover::before{
 .box1 img{
     width: 100%;
     border-radius: 10px;
+    height: 100%;
     display: block;
     transition: transform 0.5s;
 }
@@ -314,7 +316,7 @@ header .navigation a:hover::before{
 .overlay{
     height: 0;
     width: 100%;
-    background: linear-gradient(transparent, #1c1c1c 58%);
+    background: linear-gradient(transparent, #76ABDF 58%);
     border-radius: 10px;
     position: absolute;
     left: 0;
@@ -330,12 +332,19 @@ header .navigation a:hover::before{
     transition: height 0.5s;
 }
 
+
+.overlay p{
+    color: #fff;
+}
+
 .overlay h3{
     font-weight: 500;
     margin-bottom: 5px;
     margin-top: 80%;
-    font-family: bebas neue;
-    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: #fff;
+ 
     letter-spacing: 2px;
 }
 
