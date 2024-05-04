@@ -15,6 +15,35 @@
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
 }
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Ensure the video stays in the background */
+}
+
+.video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 header{
     z-index: 999;
     position: absolute;
@@ -64,13 +93,60 @@ header .navigation a:hover::before{
     width: 100%;
 }
 
-.aboutus{
-
-}
-.aboutus img{
+.aboutus-content{
+    position: relative;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10rem;
+    margin-top: 10rem;
+}
+.aboutus-content .textBox{
+    position: relative;
+    max-width: 600px;
 }
 
+.aboutus-content .textBox h2{
+    color: #fff;
+    font-size: 4em;
+    line-height: 1.4em;
+    font-weight: 500;
+}
+.aboutus-content .textBox h2 span{
+    color: #dca6f0;
+    font-size: 1em;
+    font-weight: 900;
+}
+.aboutus-content .textBox p{
+    color: #fff;
+}
+.button-a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #dca6f0;
+    color: #000449;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+.fairytales{
+    width: 550px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: 10px;
+}
+.fairytales1{
+    width: 430px;
+    display: flex;
+    justify-content: flex-end;
+    /*padding-right: 30px;*/
+    margin-top: 40px;
+    
+}
 
 </style>
 
@@ -89,14 +165,41 @@ header .navigation a:hover::before{
             <a href="contactus.html">Contact Us</a>
         </div>
     </header>
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="images/sky.mp4" type="video/mp4">
+            
+        </video>
+    </div>
+    <div class="aboutus-content">
+        <div class="textBox">
+            <h2> Welcome <br> to <span> WonderTales!</span></h2>
+           <br>  <p>This is where frogs chat to princesses, wolves huff and puff, and gingerbread men run away</p> <br>
+            <p> At WonderTales, we believe in the magic of storytelling. Our journey began with a simple belief: 
+                that within the pages of fairy tales lie endless possibilities and timeless wisdom waiting to be discovered.
+                With every turn of a page, we embark on enchanted adventures, guided by courage, imagination, and the power of dreams.</p><br>
+            <p>We are a team of passionate storytellers, artists, and dreamers who have come together to weave tales of wonder and inspiration. 
+            Through our collective creativity and boundless imagination, we strive to transport our audience to whimsical worlds where anything is possible. </p> <br>
+            <p>From the depths of enchanted forests to the heights of towering castles, our stories come to life with vivid imagery and captivating narratives. 
+                Each tale is crafted with care and imbued with the essence of magic, 
+                inviting readers of all ages to embark on unforgettable journeys filled with adventure, love, and hope.</p><br> 
+            <p>But WonderTales is more than just a collection of stories—it's a celebration of the human spirit and the power of imagination. 
+                It's a place where dreams take flight and where the impossible becomes possible. 
+                Join us on our quest to ignite the spark of wonder in the hearts of all who dare to dream.</p><br>
+            <p>As we continue to explore the realms of fantasy and imagination, our mission remains steadfast: to inspire and uplift, to ignite the imagination, 
+                and to remind the world that within each of us lies a hero, a princess, a wizard waiting to be awakened.
+                Together, let us embark on a journey of wonder and discovery, where every story is a portal to new worlds and every adventure a testament to the power of belief.
+                Join us as we weave the threads of magic into the fabric of reality, and together, let us create a world where dreams come true.</p>
 
-    <section class="aboutus">
-    
-        <!--<video src="images/dream.mp4" muted autoplay loop class="video-slider" playsinline></video>-->
-        <img src="images/dreamy.jpg">
+            <a class="button-a" href="fairytales.html">Learn More</a>
+            <br><br>
+        </div>
+        <div class="imgBox">
+            <img src="images/castle.png" class="fairytales"><br>
+            <img src="images/fairy.png" class="fairytales1">
+        </div>
        
-    </section>
-
+    </div>  
 
 </body>
 </html>
