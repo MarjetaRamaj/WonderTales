@@ -8,14 +8,90 @@
     <!--<link rel="stylesheet" href="style.css">-->
 <style>
 *{
-    background-color: lemonchiffon;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
 }
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+    transition: 0.3s ease;
+    background-color: #000449;
+}
+header .brand{
+    color:#fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header .navigation{
+    position: relative;
+}
+header .navigation a{
+    position: relative;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+
+header .navigation a::before{
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation a:hover::before{
+    width: 100%;
+}
+
+
 </style>
 
 </head>
 <body>
+    <header>
+        <a href="Index.html" class="brand">
+            WonderTales
+        </a>
 
-    <h1> Hello </h1>
+        <div class="navigation">
+            <a href="Index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="explore.html">Explore</a>
+            <a href="fairytales.html">Fairy Tales</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+    </header>
+
+    <section>
+        
+    </section>
+
 
 
 </body>
