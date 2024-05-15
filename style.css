@@ -252,121 +252,7 @@ header .navigation a:hover::before{
 
 }
 
-.title {
-    text-align: center;
-    margin-top: 50px;
-    color: #fff;
-    position: relative;
-}
-.title span {
-    display: inline-block;
-    position: relative;
-    font-family: "Sofia", sans-serif;
-    font-size: 36px;
-    text-shadow: 1px 1px 1px #ababab;
-}
-.title span::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease;
-}
-.title span:hover::before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
 
-.wrapper{
-    padding: 10px 10%;
-    margin-top: -70px;
-}
-
-#card-area{
-    padding: 25px 0;
-}
-
-.box-area{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    grid-gap: 50px;
-    margin-top: 50px;
-}
-
-.box1{
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-.box1 img{
-    width: 100%;
-    border-radius: 10px;
-    height: 100%;
-    display: block;
-    transition: transform 0.5s;
-}
-
-.overlay{
-    height: 0;
-    width: 100%;
-    background: linear-gradient(transparent, #76ABDF 58%);
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    font-size: 14px;
-    transition: height 0.5s;
-}
-
-
-.overlay p{
-    color: #fff;
-}
-
-.overlay h3{
-    font-weight: 500;
-    margin-bottom: 5px;
-    margin-top: 80%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: #fff;
- 
-    letter-spacing: 2px;
-}
-
-.overlay a{
-    margin-top: 10px;
-    color: #1c1c1c;
-    text-decoration: none;
-    font-size: 14px;
-    background: #fff;
-    border-radius: 50px;
-    text-align: center;
-    padding: 5px 15px;
-
-}
-
-.boxLhover img{
-    transform: scale(1.2);
-}
-
-.box1:hover .overlay{
-    height: 100%;
-}
 
 .video-container1 {
     position: relative;
@@ -459,3 +345,120 @@ header .navigation a:hover::before{
     font-size: 24px; 
     margin-right: 10px;
 }
+
+.explore-page1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .item1 {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: moveItems 10s linear infinite;
+  }
+  
+  @keyframes moveItems {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50%);
+    }
+  }
+  
+  .item1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .item1:hover img {
+    transform: scale(1.1);
+  }
+  .item1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .overlay1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+  }
+  .item1:hover .overlay1 {
+    transform: translateY(0);
+  }
+  
+  .item1 h3 {
+    margin: 0;
+  }
+  
+  .item1:nth-child(odd) {
+    animation-delay: 0s;
+  }
+  
+  .item1:nth-child(even) {
+    animation-delay: 5s;
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .explore-title1 {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  .explore-title1 h2 {
+      font-family: "Sofia", sans-serif;
+    color: #db92b6; 
+    margin: 0;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.5s;
+    font-size: 50px;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
