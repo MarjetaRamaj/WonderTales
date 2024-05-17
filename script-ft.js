@@ -132,6 +132,41 @@ document.getElementById("search").addEventListener("click", () => {
 });
 
 // display all products
+let pageSound; // Define the variable outside the onload function to make it accessible globally
+
 window.onload = () => {
     filterProduct("All");
+    pageSound = document.getElementById("page-sound");
+
+    // Function to toggle audio playback
+    function toggleAudio() {
+        if (pageSound.paused) {
+            pageSound.play();
+        } else {
+            pageSound.pause();
+        }
+    }
+
+    // Event listener to start/stop audio when clicking the page
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        // Check if the click target is not the search input or buttons
+        if (!target.matches('#search-input') && !target.matches('.button-value')) {
+            toggleAudio();
+        }
+    });
+
+    // Prevent audio pause/play when clicking the search input
+    document.getElementById('search-input').addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the click event from propagating to the document
+    });
+
+    // Prevent audio pause/play when clicking the buttons
+    document.querySelectorAll('.button-value').forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the click event from propagating to the document
+        });
+    });
 };
+
+
