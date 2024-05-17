@@ -22,9 +22,49 @@ let products = {
             image: "images/uglyduckling.jpg",
         },
         {
-            productName: "The three little pigs",
+            productName: "The Three Little Pigs",
             category: "CourageousAdventures",
             image: "images/threelittlepigs.jpg",
+        },
+        {
+            productName: "Thumbelina",
+            category: "KindnessAndCompassion",
+            image: "images/thumbelina.jpg",
+        },
+        {
+            productName: "The Bremen Town Musicians",
+            category: "WisdomAndWit",
+            image: "images/brementown.jpg",
+        },
+        {
+            productName: "The Sleeping Beauty",
+            category: "EnchantedLove",
+            image: "images/sleepingbeauty.jpg",
+        },
+        {
+            productName: "The Little Mermaid",
+            category: "EnchantedLove",
+            image: "images/littlemermaid.jpg",
+        },
+        {
+            productName: "Pinocchio",
+            category: "CourageousAdventures",
+            image: "images/pinocchio.jpg",
+        },
+        {
+            productName: "The Selfish Giant",
+            category: "KindnessAndCompassion",
+            image: "images/selfishgiant.jpg",
+        },
+        {
+            productName: "Hansel and Gretel",
+            category: "CourageousAdventures",
+            image: "images/hanselandgretel1.jpg",
+        },
+        {
+            productName: "The Emperor's New Clothes",
+            category: "WisdomAndWit",
+            image: "images/emperor.jpg",
         },
     ],
 };
@@ -147,6 +187,8 @@ window.onload = () => {
         }
     }
 
+                //duhet me msu qka qysh tek o qiky kod, osht per background audion
+
     // Event listener to start/stop audio when clicking the page
     document.addEventListener('click', (event) => {
         const target = event.target;
@@ -166,6 +208,10 @@ window.onload = () => {
         button.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent the click event from propagating to the document
         });
+    });
+    // Prevent audio pause/play when clicking the search button
+    document.getElementById('search').addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the click event from propagating to the document
     });
 };
 
