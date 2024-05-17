@@ -1,130 +1,137 @@
-let products= {
-    data:[
-    {
-        productName: "Rapunzel",
-        category:"EnchantedLove",
-        image:"images/rapunzel.jpg",
-    },
-    {
-        productName: "Cinderella",
-        category:"KindnessAndCompassion",
-        image:"images/cinderella.jpg",
-    },
-    {
-        productName: "PeterPan",
-        category:"CourageousAdventures",
-        image:"images/peterpan.jpg",
-    },
-    {
-        productName: "Ariel",
-        category:"EnchantedLove",
-        image:"images/ariel.jpg",
-    },
-    {
-        productName: "Robin Hood",//qisaj ja ndrron kategorin veq kom desht mi provu kejt kategorit
-        category:"WisdomAndWit",
-        image:"images/robinhood.jpg",
-    },
-    {
-        productName: "Hansel and Gretel",
-        category:"CourageousAdventures",
-        image:"images/hanselandgretel.jpg",
-    },
-
-],
+let products = {
+    //qitu po krijohen qato tdhanat e cards per nfront ku dalin te divi 'product' nfund 
+    data: [
+        {
+            productName: "The Twelve Dancing Princesses",
+            category: "CourageousAdventures",
+            image: "images/dancingprincesses.jpeg",
+        },
+        {
+            productName: "The Frog Prince",
+            category: "EnchantedLove",
+            image: "images/frogprince.jpg",
+        },
+        {
+            productName: "Puss in Boots",
+            category: "WisdomAndWit",
+            image: "images/pussinboots.jpg",
+        },
+        {
+            productName: "The Ugly Duckling",
+            category: "KindnessAndCompassion",
+            image: "images/uglyduckling.jpg",
+        },
+        {
+            productName: "The three little pigs",
+            category: "CourageousAdventures",
+            image: "images/threelittlepigs.jpg",
+        },
+    ],
 };
 
-for(let i of products.data)
-    {
-        //krijimi cards
+for (let i of products.data) {
+    // krijimi cards nbaz qatyne tdhanav qe i krijum ma nalt
     let card = document.createElement("div");
-
-    //cards me kategori and should stay hidden initially
+    // cards me kategori dhe ato qe duhet mu mshef kur o nevoja
     card.classList.add("card", i.category, "hide");
 
-    //fotoja
+     // Lidhja e fotove/storieve me faqen perkatse
+     let link = document.createElement("a");
+     if (i.productName === "The Twelve Dancing Princesses") {
+         link.href = "stories/twelvedancingprincesses.html";
+     } else if (i.productName === "The Frog Prince") {
+         link.href = "stories/frogprince.html";
+     } else if (i.productName === "Puss in Boots") {
+        link.href = "stories/pussinboots.html";
+     } else if (i.productName === "The Ugly Duckling") {
+        link.href = "stories/uglyduckling.html";
+     } 
+
+
+    // fotoja
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("image-container");
 
-    //img tag
+    // img tag
     let image = document.createElement("img");
     image.setAttribute("src", i.image);
-    imgContainer.appendChild(image);
+    image.setAttribute("alt", i.productName); 
+    image.style.width = "100%";
+
+    link.appendChild(image);
+    // lidhja e anchor tag me card
+    imgContainer.appendChild(link);
     card.appendChild(imgContainer);
 
-    //container
+    // container
     let container = document.createElement("div");
     container.classList.add("container");
 
-    //emri produktit
+    // emri produktit
     let name = document.createElement("h5");
     name.classList.add("product-name");
     name.innerText = i.productName.toUpperCase();
     container.appendChild(name);
 
-    //te kodi nvidedo qitu vjen price amo un si kom ato
-
+    // te kodi nvideo qitu vjen price amo un si kom ato muj me shtu ni pershkrim if needded 
 
     card.appendChild(container);
-     document.getElementById("products").appendChild(card);
+    document.getElementById("products").appendChild(card);
+}
 
-    }
-
-//parameter passed from button (parameter same as category)
-function filterProduct(value){
-    //button class code
+// parametri qe vjen kur klikohet butoni (parameter same as category)
+function filterProduct(value) {
+    // button class code
     let buttons = document.querySelectorAll(".button-value");
     buttons.forEach((button) => {
-        //check if value equals innerText
-        if(value.toUpperCase() == button.innerText.toUpperCase()) {
+        // check nese tdhanat jane njejt me innerText
+        if (value.toUpperCase() == button.innerText.toUpperCase()) {
             button.classList.add("active");
-        } else{
+        } else {
             button.classList.remove("active");
         }
     });
 
-    //select all cards
+    // select krejt cards
     let elements = document.querySelectorAll(".card");
-    //loop through all cards
+    // loop naper cards
     elements.forEach((element) => {
-    //display all cards on 'all' button click
-    if(value == "All"){
-        element.classList.remove("hide");
-    }else {
-        //check if element contains category class
-        if(element.classList.contains(value)){
-        //display element based on category
-         element.classList.remove("hide");
-        } else{
-        //hide other elements
-        element.classList.add("hide");
+        // mi shfaqe krejt cards te All butoni
+        if (value == "All") {
+            element.classList.remove("hide");
+        } else {
+            // me kqyr ni card a ka kategoi tcaktume
+            if (element.classList.contains(value)) {
+                // i shfaq cards nbaz kategoris
+                element.classList.remove("hide");
+            } else {
+                // kur sfaqet kategoria specifike tjerat mu mshef
+                element.classList.add("hide");
+            }
         }
-    }
     });
 }
 
-
-//search butoni
-document.getElementById("search").addEventListener
-("click", () => {
-    //initialization
-    let searchInput = document.getElementById("search-input").value;
+// search butoni
+document.getElementById("search").addEventListener("click", () => {
+    // initialization
+    let searchInput = document.getElementById("search-input").value.toUpperCase();
     let elements = document.querySelectorAll(".product-name");
     let cards = document.querySelectorAll(".card");
-    //loop through all elements
-    elements.forEach((element, index)=> {
-     //check a po pershtatet searchi me qat text
-    if(element,innerText.includes(searchInput.toUpperCase())){
-        //shfaqe matching card
-    cards[index].classList.remove("hide");
-    } else {
-        //hide tjerat cards
-    cards[index].classList.add("hide");
-    }
+    // loop through all elements
+    elements.forEach((element, index) => {
+        // check a po pershtatet searchi me qat text
+        if (element.innerText.includes(searchInput)) {
+            // shfaqe matching card
+            cards[index].classList.remove("hide");
+        } else {
+            // hide tjerat cards
+            cards[index].classList.add("hide");
+        }
     });
 });
 
-//display all products
+// display all products
 window.onload = () => {
     filterProduct("All");
-}
+};
