@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>WonderTales</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"  />
+   
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .controls{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        font-family: 'Parisienne', cursive;
+    }
+    h2{
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transition: translateX(-50%);
+        color: #fff;
+        font-size: calc(2rem + 2vw);
+        text-shadow: 2px 4px 2px rgba(0, 0, 0, 1);
+    }
+    h2:before{
+        content: '';
+        
+    }
+
+    </style>
+   
+    </head>
+    <body>
+        <div class="controls">
+            <h2>Maldives</h2>
+            <button class="control-r">&gt;</button>
+            <button class="control-l">&lt;</button>
+        </div>
+    </body>
+</html>

@@ -125,7 +125,12 @@ for (let i of products.data) {
         link.href = "stories/monkeyandcrocodile.html";
      }else if (i.productName === "Cinderella") {
         link.href = "stories/cinderella.html";
+     }else if (i.productName === "Peter Pan") {
+        link.href = "stories/peterpan.html";
+     }else if (i.productName === "The Little Red Riding Hood") {
+        link.href = "stories/kesulkuqja.html";
      }
+
 
 
 
