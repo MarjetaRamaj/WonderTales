@@ -2,98 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>WonderTales</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"  />
-    <!--<link rel="stylesheet" href="style.css">-->
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
-}
-body{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: plum; /*tani e hek qito kur tshti sene mrena*/
-}
-
-header{
-    z-index: 999;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 100px;
-    transition: 0.3s ease;
-
-}
-header .brand{
-    color:#fff;
-    font-size: 1.5em;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-header .navigation{
-    position: relative;
-}
-header .navigation a{
-    position: relative;
-    color: #fff;
-    font-size: 1em;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 30px;
-    transition: 0.3s ease;
-}
-
-header .navigation a::before{
-    content: '';
-    position: absolute;
-    background: #fff;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    transition: 0.3s ease;
-}
-
-header .navigation a:hover::before{
-    width: 100%;
-}
-
-
-</style>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS styles specific to this page */
+        /* You can customize this further based on your design requirements */
+        /* Example styles for demonstration purposes */
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .contact-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input[type="text"], 
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-group textarea {
+            height: 150px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <a href="Index.html" class="brand">
-            WonderTales
-        </a>
-
-        <div class="navigation">
-            <a href="Index.html">Home</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="explore.html">Explore</a>
-            <a href="fairytales.html">Fairy Tales</a>
-            <a href="contactus.html">Contact Us</a>
+    <div class="container">
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
         </div>
-    </header>
-
-    <section>
-        
-    </section>
-
-
-
+    </div>
 </body>
 </html>
