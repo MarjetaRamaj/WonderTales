@@ -7,9 +7,9 @@ let products = {
             image: "images/dancingprincesses.jpeg",
         },
         {
-            productName: "The Frog Prince",
-            category: "EnchantedLove",
-            image: "images/frogprince.jpg",
+            productName: "Alice in Wonderland",
+            category: "WisdomAndWit",
+            image: "images/alice1.png",
         },
         {
             productName: "Puss in Boots",
@@ -32,14 +32,14 @@ let products = {
             image: "images/thumbelina.jpg",
         },
         {
-            productName: "The Bremen Town Musicians",
-            category: "WisdomAndWit",
-            image: "images/brementown.jpg",
+            productName: "The Frog Prince",
+            category: "EnchantedLove",
+            image: "images/frogprince.jpg",
         },
         {
-            productName: "The Sleeping Beauty",
-            category: "EnchantedLove",
-            image: "images/sleepingbeauty.jpg",
+            productName: "Hansel and Gretel",
+            category: "CourageousAdventures",
+            image: "images/hanselandgretel1.jpg",
         },
         {
             productName: "The Little Mermaid",
@@ -52,19 +52,19 @@ let products = {
             image: "images/pinocchio.jpg",
         },
         {
-            productName: "The Selfish Giant",
+            productName: "Rapunzel",
             category: "KindnessAndCompassion",
-            image: "images/selfishgiant.jpg",
+            image: "images/rapunzel.jpg",
         },
         {
-            productName: "Hansel and Gretel",
-            category: "CourageousAdventures",
-            image: "images/hanselandgretel1.jpg",
+            productName: "The Sleeping Beauty",
+            category: "EnchantedLove",
+            image: "images/sleepingbeauty.jpg",
         },
         {
-            productName: "The Monkey And The Crocodile",
+            productName: "Robin hood",
             category: "WisdomAndWit",
-            image: "images/monkey.jpg",
+            image: "images/robinhood1.jpg",
         },
         {
             productName: "Cinderella",
