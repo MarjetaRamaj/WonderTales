@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Card Example</title>
+<style>
+    /* CSS Styles for Card */
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 900px; /* Adjust max-width as needed */
+        margin: 0 auto; /* Center the container */
+    }
+    .card {
+        width: calc(25% - 40px); /* Adjust width for four cards in a row */
+        height: 250px;
+        margin: 20px;
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .card .media-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .card .media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .card .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .card:hover .video {
+        opacity: 1;
+    }
+    .card .gif {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .card:hover .gif {
+        opacity: 1;
+    }
+    .card .title {
+        padding: 10px;
+        background-color: #dca6f0; /* Light pink */
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+}
+
+.video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+</style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="images/sky.mp4" type="video/mp4">
+        </video>
+    </div>
+
+<div class="container">
+  
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/peter.png" alt="Image">
+            <img class="gif" src="images/peterpan.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;">Peterpan</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/wendy.png" alt="Image">
+            <img class="gif" src="images/wendy.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;">Wendy Darling</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/john.png" alt="Image">
+            <img class="gif" src="images/john.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;">John Darling</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/michael.png" alt="Image">
+            <img class="gif" src="images/michael.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;"> Michael Darling</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/tinkerbelle.png" alt="Image">
+            <img class="gif" src="images/tinkerbell.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;"> Tinkerbell</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/captainhook.png" alt="Image">
+            <img class="gif" src="images/captainhook.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;"> Captain Hook</h3>
+        </div>
+    </div>
+
+
+
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/smee.png" alt="Image">
+            <img class="gif" src="images/smee.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;"> Smee</h3>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="media-container">
+            <img class="media" src="images/lostboys.png" alt="Image">
+            <img class="gif" src="images/thelostboys.gif" alt="GIF">
+        </div>
+        <div class="title">
+            <h3 style="margin: 0;"> The lost boys</h3>
+        </div>
+    </div>
+
+    <!-- Add more cards here as needed -->
+
+</div>
+
+</body>
+</html>

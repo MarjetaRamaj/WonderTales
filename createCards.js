@@ -101,7 +101,7 @@ for (let i of products.data) {
      } else if (i.productName === "Puss in Boots") {
         link.href = "stories/pussinboots.html";
      } else if (i.productName === "Snowwhite and seven dwarfs") {
-        link.href = "snowwhite.html";
+        link.href = "stories/snowwhite.html";
      } 
      else if (i.productName === "The Three Little Pigs") {
         link.href = "stories/threelittlepigs.html";
@@ -119,7 +119,7 @@ for (let i of products.data) {
      }else if (i.productName === "The Selfish Giant") {
         link.href = "stories/selfishgiant.html";
      }else if (i.productName === "Hansel and Gretel") {
-        link.href = "hanselandgretel.html";
+        link.href = "stories/hanselandgretel.html";
      }
      else if (i.productName === "The Monkey And The Crocodile") {
         link.href = "stories/monkeyandcrocodile.html";
