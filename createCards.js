@@ -119,7 +119,7 @@ for (let i of products.data) {
      }else if (i.productName === "The Selfish Giant") {
         link.href = "stories/selfishgiant.html";
      }else if (i.productName === "Hansel and Gretel") {
-        link.href = "stories/hanselandgretel.html";
+        link.href = "hanselandgretel.html";
      }
      else if (i.productName === "The Monkey And The Crocodile") {
         link.href = "stories/monkeyandcrocodile.html";
