@@ -8,45 +8,50 @@
     /* CSS styles for the card */
     .container {
       display: flex;
+      flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
       padding: 20px;
     }
 
     .card {
-      width: 150px;
+      width: 220px; /* Increase the card width */
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 10px rgba(202, 92, 205, 0.5); /* Add colorful shadow */
       transition: transform 0.3s ease;
+      background-color: transparent; /* Set card background to transparent */
     }
     .card:hover {
       transform: translateY(-5px);
     }
     .media-container {
-      
-      height: 100px;
+      height: 180px; /* Increase the media container height */
       overflow: hidden;
+      position: relative;
     }
     .media {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
     }
     .title {
-      padding: 10px;
+      margin: 10px 0;
       text-align: center;
-      background-color: #f7e8f8; /* Light purple */
-      color: #333;
+      color: #ca5ccd;
       font-weight: bold;
+      font-family: monospace;
+      background-color: transparent; /* Remove background color */
+      padding: 0; /* Remove padding */
     }
     .button-container {
       text-align: center;
       padding: 10px;
+      background-color: transparent; /* Remove background color */
     }
     .button {
       padding: 8px 20px;
-      background-color: #957dad; /* Purple */
+      background-color: #bda3d7; /* Purple */
       color: white;
       border: none;
       border-radius: 20px;
@@ -76,16 +81,27 @@
 
     <div class="card">
       <div class="media-container">
-        <img class="media" src="../images/cinderella.jpg" alt="Cinderella Image">
+        <img class="media" src="../images/cinderella1.jpg" alt="Cinderella Image">
       </div>
       <div class="title">
         <h3>Cinderella</h3>
       </div>
       <div class="button-container">
-        <a href="quiz2.html" class="button">Quiz</a>
+        <a href="cinderellaquiz.html" class="button">Quiz</a>
       </div>
     </div>
 
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/hanselandgretel.jpg" alt="hanselandgretel Image">
+      </div>
+      <div class="title">
+        <h3>Hansel and Gretel</h3>
+      </div>
+      <div class="button-container">
+        <a href="hanselandgretelquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
