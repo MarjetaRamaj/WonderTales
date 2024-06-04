@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fairy Tale Quizzes</title>
+  <style>
+    /* CSS styles for the card */
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 150px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .media-container {
+      
+      height: 100px;
+      overflow: hidden;
+    }
+    .media {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .title {
+      padding: 10px;
+      text-align: center;
+      background-color: #f7e8f8; /* Light purple */
+      color: #333;
+      font-weight: bold;
+    }
+    .button-container {
+      text-align: center;
+      padding: 10px;
+    }
+    .button {
+      padding: 8px 20px;
+      background-color: #957dad; /* Purple */
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #7a5f8f; /* Darker purple on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/snowwhite.jpg" alt="Snow White Image">
+      </div>
+      <div class="title">
+        <h3>Snow White</h3>
+      </div>
+      <div class="button-container">
+        <a href="../quizes/snowwhitequiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/cinderella.jpg" alt="Cinderella Image">
+      </div>
+      <div class="title">
+        <h3>Cinderella</h3>
+      </div>
+      <div class="button-container">
+        <a href="quiz2.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
