@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>WonderTales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"  />
-    <!--<link rel="stylesheet" href="style.css">-->
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+ 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
+    @import url('https://fonts.googleapis.com/css?family=Sofia');
+
 *{
     margin: 0;
     padding: 0;
@@ -18,81 +24,204 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(126, 170, 221);
-}
 
-header{
-    z-index: 999;
-    position: absolute;
+}
+.video-container {
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+}
+
+.video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.aboutus-content{
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 100px;
-    transition: 0.3s ease;
-
+    margin-left: 12rem;
+    margin-top: 5rem;
 }
-header .brand{
-    color:#fff;
-    font-size: 1.5em;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
+.aboutus-content .textBox{
+    position: relative;
+    max-width: 600px;
 }
 
-header .navigation{
-    position: relative;
-}
-header .navigation a{
-    position: relative;
+
+.aboutus-content .textBox p{
     color: #fff;
-    font-size: 1em;
+    font-family: 'Dancing Script', cursive;
+    font-size: 27px;
+    text-align: justify;
+}
+.button-a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #dca6f0;
+    color: #000449;
+    border-radius: 40px;
     font-weight: 500;
+    letter-spacing: 1px;
     text-decoration: none;
-    margin-left: 30px;
-    transition: 0.3s ease;
 }
 
-header .navigation a::before{
-    content: '';
-    position: absolute;
-    background: #fff;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    transition: 0.3s ease;
+
+.aboutus-content .textBox h2 {
+    font-size: 45px;
+    color: #dca6f0; 
+    font-weight: bold;
+    font-family: 'Sofia', sans-serif;
+      
+    text-align: center;
+   
+    
+    
+
+    position: relative;
+    animation: floatLeftToRight 5s ease-in-out forwards;
+    white-space: nowrap; /* Prevents the text from wrapping */
 }
 
-header .navigation a:hover::before{
-    width: 100%;
+@keyframes floatLeftToRight {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; }
 }
+.imgBox {
+    text-align: center; 
+   
+}
+
+.imgBox img {
+    max-width: 70%; /* Ensure images don't exceed their container's width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between images */
+    border-radius: 50%; /* Make the image round */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5); /* Add a subtle white shadow */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition for transform and box-shadow */
+
+}
+
+.imgBox img:hover {
+    transform: scale(1.1); /* Scale up the image */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8); /* Add a stronger white shadow */
+}
+
+.fairytales {
+    border-radius: 50%; /* Make the image round */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5); /* Add a subtle white shadow */
+    width: 550px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+    margin-top: -50px;
+}
+
+.fairytales1 {
+    border-radius: 50%;
+    width: 430px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 70px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5); /* Add a subtle white shadow */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.fairy-container {
+    position: fixed; /* Keep the fairy in a fixed position */
+    top: 10px; /* Adjust the top position as needed */
+    left: 7px; /* Adjust the left position as needed */
+    z-index: 1000; /* Ensure the fairy stays above other elements */
+    pointer-events: none; /* Make sure it doesn't interfere with clicking other elements */
+}
+
+.fairy-container img {
+    width: 58%; /* Adjust the size of the fairy image */
+    height: auto; /* Maintain aspect ratio */
+    animation: float1 3s ease-in-out infinite; /* Add a gentle float animation */
+}
+
+@keyframes float1 {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Apply the float animation to both images */
+.fairytales, .fairytales1 {
+    animation: float 3s ease-in-out infinite;
+}
+
+
+
 
 
 </style>
 
 </head>
 <body>
-    <header>
-        <a href="Index.html" class="brand">
-            WonderTales
-        </a>
-
-        <div class="navigation">
-            <a href="../Index.html">Home</a>
-            <a href="../aboutus.html">About Us</a>
-            <a href="../explore.html">Explore</a>
-            <a href="../fairytales.html">Fairy Tales</a>
-            <a href="../contactus.html">Contact Us</a>
+   
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="../images/sky.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="aboutus-content">
+        <div class="textBox">
+            <h2> Pinnochio</h2>
+           <br>   <p>
+ 
+            In a quaint Italian village, a skilled woodcarver named Geppetto lovingly crafted a puppet from a block of pine. Naming him Pinocchio, Geppetto wished upon a star for his creation to become a real boy. To his astonishment, the Blue Fairy granted his wish, bringing Pinocchio to life. Overjoyed but inexperienced, Pinocchio embarked on an adventurous journey to learn the ways of the world.</p><br> <br>
+           
+            <p>Guiding him on his path was Jiminy Cricket, a wise and conscientious insect who served as Pinocchio's moral compass. Despite Jiminy's guidance, Pinocchio found himself tempted by the allure of mischief and adventure, often falling prey to the wiles of deceitful characters such as the Fox and the Cat.</p> <br>
+            <p>Through a series of misadventures, Pinocchio encountered trials that tested his courage and integrity. He faced danger in the belly of a monstrous whale and learned the consequences of disobedience and selfishness. Despite his mistakes, Pinocchio's heart remained pure, driven by his desire to become a real boy and reunite with his beloved Geppetto.</p><br> 
+            <p>In the end, Pinocchio's selfless acts of bravery and kindness earned him the ultimate reward. The Blue Fairy, moved by his transformation, granted his wish, transforming him into a real boy. With Geppetto's loving embrace and Jiminy Cricket's guidance by his side, Pinocchio embraced his newfound humanity, forever cherishing the lessons learned on his extraordinary journey from puppet to boy. And they lived happily ever after, a testament to the power of love, courage, and the pursuit of one's dreams.</p><br>
+            
+            <a class="button-a" href="../fairytales.html">Go back</a>
+            <a class="button-a" href="../pinochiocharacter.html">Go to characters</a>
+            <br><br>
         </div>
-    </header>
+        
+        <div class="imgBox">
+            <img src="../images/pinocchio.jpg" class="fairytales"><br>
+            <img src="../images/pinokio.png" class="fairytales1">
+        </div>
+       
+        
+    </div>  
 
-    <section>
-        <h1> Hello </h1>
-    </section>
-
+    <div class="fairy-container">
+        <img src="../images/giphy.gif" alt="Fairy throwing dust" class="fairy">
+    </div>
+   
 
 
 </body>

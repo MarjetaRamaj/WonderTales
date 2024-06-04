@@ -17,9 +17,9 @@ let products = {
             image: "images/pussinboots.jpg",
         },
         {
-            productName: "The Ugly Duckling",
-            category: "KindnessAndCompassion",
-            image: "images/uglyduckling.jpg",
+            productName: "Snowwhite and seven dwarfs",
+            category: "EnchantedLove",
+            image: "images/snowwhite.jpg",
         },
         {
             productName: "The Three Little Pigs",
@@ -96,19 +96,19 @@ for (let i of products.data) {
      let link = document.createElement("a");
      if (i.productName === "The Twelve Dancing Princesses") {
          link.href = "stories/twelvedancingprincesses.html";
-     } else if (i.productName === "The Frog Prince") {
-         link.href = "stories/frogprince.html";
+     } else if (i.productName === "Alice in Wonderland") {
+         link.href = "stories/aliceinwonderland.html";
      } else if (i.productName === "Puss in Boots") {
         link.href = "stories/pussinboots.html";
-     } else if (i.productName === "The Ugly Duckling") {
-        link.href = "stories/uglyduckling.html";
+     } else if (i.productName === "Snowwhite and seven dwarfs") {
+        link.href = "snowwhite.html";
      } 
      else if (i.productName === "The Three Little Pigs") {
         link.href = "stories/threelittlepigs.html";
      }else if (i.productName === "Thumbelina") {
         link.href = "stories/thumbelina.html";
-     }else if (i.productName === "The Bremen Town Musicians") {
-        link.href = "stories/brementown.html";
+     }else if (i.productName === "The Frog Prince") {
+        link.href = "stories/frogprince.html";
      }else if (i.productName === "The Sleeping Beauty") {
         link.href = "stories/sleepingbeauty.html";
      }
@@ -119,7 +119,7 @@ for (let i of products.data) {
      }else if (i.productName === "The Selfish Giant") {
         link.href = "stories/selfishgiant.html";
      }else if (i.productName === "Hansel and Gretel") {
-        link.href = "stories/hanselandgretel.html";
+        link.href = "hanselandgretel.html";
      }
      else if (i.productName === "The Monkey And The Crocodile") {
         link.href = "stories/monkeyandcrocodile.html";
