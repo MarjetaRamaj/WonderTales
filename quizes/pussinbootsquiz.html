@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puss in Boots Quiz</title>
+  <style>
+    /* Advanced CSS styling for the quiz */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quiz-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-left: 50px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      color: coral;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .options label input {
+      margin-right: 10px;
+    }
+
+    #submit {
+      background-color: coral;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1; 
+    }
+    
+    .imgBox {
+      text-align: center; 
+    }
+
+    .imgBox img {
+      max-width: 50%;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .imgBox img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
+    }
+
+    .video-container video {
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video autoplay loop muted>
+      <source src="../images/pussinboots.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="quiz-container">
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <button id="submit">Submit</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "What is the name of the cat in the story?",
+        options: ["Puss", "Boots", "Whiskers", "Tom"],
+        answer: "Puss"
+      },
+      {
+        question: "Who does Puss trick into marrying the miller's son?",
+        options: ["The Ogre", "The King", "The Queen", "The Princess"],
+        answer: "The Ogre"
+      },
+      {
+        question: "What does Puss ask the miller's son to do in exchange for his help?",
+        options: ["Buy him boots", "Get him food", "Find him a home", "Make him a hat"],
+        answer: "Buy him boots"
+      },
+      {
+        question: "What does Puss do to impress the King?",
+        options: ["Catches a rabbit", "Climbs a tree", "Catches a mouse", "Fights a dog"],
+        answer: "Catches a rabbit"
+      },
+      {
+        question: "How does Puss trick the ogre into turning into a mouse?",
+        options: ["He tells him it's a new dance", "He scares him with a loud noise", "He offers him cheese", "He threatens him with a sword"],
+        answer: "He threatens him with a sword"
+      }
+    ];
+
+    const questionElement = document.getElementById("question");
+    const optionsElement = document.getElementById("options");
+    const submitButton = document.getElementById("submit");
+    const resultElement = document.getElementById("result");
+
+    let currentQuestion = 0;
+    let score = 0;
+    function loadQuestion() {
+      const currentQuizData = quizData[currentQuestion];
+      questionElement.innerText = currentQuizData.question;
+      optionsElement.innerHTML = "";
+      currentQuizData.options.forEach((option, index) => {
+        const optionElement = document.createElement("label");
+        optionElement.innerHTML = `<input type="radio" name="option" value="${option}">${option}`;
+        optionsElement.appendChild(optionElement);
+      });
+    }
+
+    function checkAnswer() {
+      const selectedOption = document.querySelector('input[name="option"]:checked');
+      if (!selectedOption) return;
+
+      if (selectedOption.value === quizData[currentQuestion].answer) {
+        score++;
+      }
+      currentQuestion++;
+
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      resultElement.innerHTML = `You scored ${score} out of ${quizData.length}`;
+    }
+
+    loadQuestion();
+
+    submitButton.addEventListener("click", checkAnswer);
+  </script>
+
+  <div class="imgBox">
+    <img src="../images/pussinboots.jpg" class="fairytales"><br>
+  </div>
+</body>
+</html>
