@@ -12,19 +12,54 @@
       gap: 20px;
       justify-content: center;
       padding: 20px;
+      max-width: 900px; /* Set max-width for the container */
+      margin: 0 auto; /* Center the container */
     }
+    .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+}
+
+.video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
     .card {
-      width: 220px; /* Increase the card width */
+      flex: 1 0 calc(25% - 20px); /* Flex basis set to 25% minus gap */
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 10px rgba(202, 92, 205, 0.5); /* Add colorful shadow */
       transition: transform 0.3s ease;
-      background-color: transparent; /* Set card background to transparent */
+      background-color: #ddcedd; /* Set card background to transparent */
+      animation: moveUpDown 4s infinite alternate; /* Animation for moving up and down */
     }
     .card:hover {
       transform: translateY(-5px);
+      animation-play-state: paused; /* Pause the animation on hover */
     }
+
+    @keyframes moveUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
     .media-container {
       height: 180px; /* Increase the media container height */
       overflow: hidden;
@@ -63,9 +98,16 @@
     .button:hover {
       background-color: #7a5f8f; /* Darker purple on hover */
     }
+
   </style>
 </head>
 <body>
+  <div class="video-container">
+    <video autoplay loop muted>
+        <source src="../images/sky.mp4" type="video/mp4">
+    </video>
+</div>
+
   <div class="container">
     <div class="card">
       <div class="media-container">
@@ -93,7 +135,7 @@
 
     <div class="card">
       <div class="media-container">
-        <img class="media" src="../images/hanselandgretel.jpg" alt="hanselandgretel Image">
+        <img class="media" src="../images/hanselandgretel.jpg" alt="Hansel and Gretel Image">
       </div>
       <div class="title">
         <h3>Hansel and Gretel</h3>
@@ -102,6 +144,169 @@
         <a href="hanselandgretelquiz.html" class="button">Quiz</a>
       </div>
     </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/peterpan1.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Peter Pan</h3>
+      </div>
+      <div class="button-container">
+        <a href="peterpanquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/ariel.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Little Mermaid</h3>
+      </div>
+      <div class="button-container">
+        <a href="littlemermaidquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/robini.png" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Robin Hood</h3>
+      </div>
+      <div class="button-container">
+        <a href="robinhoodquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/rapunzel.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Rapunzel</h3>
+      </div>
+      <div class="button-container">
+        <a href="rapunzelquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/beautyandthebeast.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Beauty and the beast</h3>
+      </div>
+      <div class="button-container">
+        <a href="beautyandthebeastquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/dancingprincesses.jpeg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>The twelve dancing princesses</h3>
+      </div>
+      <div class="button-container">
+        <a href="thetwelvedancingprincessesquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/alice1.png" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Alice in Wonderland</h3>
+      </div>
+      <div class="button-container">
+        <a href="aliceinwonderlandquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/pussinboots.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Puss in Boots</h3>
+      </div>
+      <div class="button-container">
+        <a href="pussinbootsquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/threelittlepigs.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Three little pigs</h3>
+      </div>
+      <div class="button-container">
+        <a href="threelittlepigs.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/thumeblina.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Thumbelina</h3>
+      </div>
+      <div class="button-container">
+        <a href="thumbelinaquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/frog.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>The frog prince</h3>
+      </div>
+      <div class="button-container">
+        <a href="thefrogrprincequiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/pinocchio.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Pinnochio</h3>
+      </div>
+      <div class="button-container">
+        <a href="pinnochioquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media-container">
+        <img class="media" src="../images/sleepingbeauty.jpg" alt="Peter Pan Image">
+      </div>
+      <div class="title">
+        <h3>Sleeping Beauty</h3>
+      </div>
+      <div class="button-container">
+        <a href="sleepingbeautyquiz.html" class="button">Quiz</a>
+      </div>
+    </div>
+    
+    
+    
+    <!-- Add more cards here -->
   </div>
 </body>
 </html>
