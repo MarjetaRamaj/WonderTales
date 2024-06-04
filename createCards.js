@@ -133,8 +133,6 @@ for (let i of products.data) {
 
 
 
-
-
     // fotoja
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("image-container");
@@ -160,7 +158,6 @@ for (let i of products.data) {
     name.innerText = i.productName.toUpperCase();
     container.appendChild(name);
 
-    // te kodi nvideo qitu vjen price amo un si kom ato muj me shtu ni pershkrim if needded 
 
     card.appendChild(container);
     document.getElementById("products").appendChild(card);
