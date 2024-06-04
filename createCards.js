@@ -116,13 +116,13 @@ for (let i of products.data) {
         link.href = "stories/littlemermaid.html";
      }else if (i.productName === "Pinocchio") {
         link.href = "stories/pinocchio.html";
-     }else if (i.productName === "The Selfish Giant") {
-        link.href = "stories/selfishgiant.html";
+     }else if (i.productName === "Rapunzel") {
+        link.href = "stories/rapunzel.html";
      }else if (i.productName === "Hansel and Gretel") {
         link.href = "hanselandgretel.html";
      }
-     else if (i.productName === "The Monkey And The Crocodile") {
-        link.href = "stories/monkeyandcrocodile.html";
+     else if (i.productName === "Robin hood") {
+        link.href = "stories/robinhood.html";
      }else if (i.productName === "Cinderella") {
         link.href = "stories/cinderella.html";
      }else if (i.productName === "Peter Pan") {

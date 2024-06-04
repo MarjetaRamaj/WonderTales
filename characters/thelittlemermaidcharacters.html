@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video Card Example</title>
 <style>
-    /* CSS Styles for Card */
+   @import url('https://fonts.googleapis.com/css?family=Sofia');
     .container {
         display: flex;
         flex-wrap: wrap;
@@ -99,6 +99,46 @@
     transform: translate(-50%, -50%);
 }
 
+.animated-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #f9dbe4; /* Baby pink */
+        text-align: center;
+        font-family: "Sofia", sans-serif;
+        position: relative;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+    .animated-title span {
+        display: inline-block;
+        transform: translateY(-100%);
+        animation: slideIn 1s ease-out forwards;
+        opacity: 0;
+    }
+    @keyframes slideIn {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+.button-a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #dca6f0;
+    color: #000449;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
 
 
 </style>
@@ -109,6 +149,11 @@
         <video autoplay loop muted>
             <source src="../images/sky.mp4" type="video/mp4">
         </video>
+    </div>
+
+    
+    <div class="animated-title">
+        <span>Little mermaid characters </span>
     </div>
 
 <div class="container">
@@ -188,9 +233,10 @@
 
    
 
-    <!-- Add more cards here as needed -->
 
 </div>
+
+<a class="button-a" href="../fairytales.html">Go back</a>
 
 </body>
 </html>
