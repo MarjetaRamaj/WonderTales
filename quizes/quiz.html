@@ -8,19 +8,19 @@
     *{
       font-family: 'poppins', sans-serif;
     }
-    header{
+    header {
     z-index: 999;
     position: absolute;
-    top: 0;
+    top: 10px; 
     left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 100px;
+    padding: 20px 70px; 
     transition: 0.3s ease;
-
 }
+
 
 header .brand{
     color:#fff;
@@ -29,9 +29,8 @@ header .brand{
     text-decoration: none;
     text-transform: uppercase;
 }
-
-header .navigation{
-    position: relative;
+header .navigation {
+    margin-right: 150px; 
 }
 
 header .navigation a{
@@ -62,15 +61,15 @@ header .navigation a:hover::before{
 
     /* CSS styles for the card */
     .container {
-      display: flex;
-      flex-wrap: wrap;
-    
-      gap: 20px;
-      justify-content: center;
-      padding: 20px;
-      max-width: 900px; /* Set max-width for the container */
-      margin: 0 auto; /* Center the container */
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  max-width: 900px;
+  margin: 100px auto 20px; /* Adjust margin-top to move the cards lower */
+}
+
     .video-container {
     position: fixed;
     top: 0;
