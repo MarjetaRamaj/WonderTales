@@ -119,7 +119,7 @@ for (let i of products.data) {
      }else if (i.productName === "Rapunzel") {
         link.href = "stories/rapunzel.html";
      }else if (i.productName === "Hansel and Gretel") {
-        link.href = "hanselandgretel.html";
+        link.href = "stories/hanselandgretel.html";
      }
      else if (i.productName === "Robin hood") {
         link.href = "stories/robinhood.html";
