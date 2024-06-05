@@ -180,17 +180,22 @@ body{
 }
 
 .play-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #dca6f0; 
+    color: #000449;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; 
+}
+
+.play-button:hover {
+    background-color: rgba(255, 255, 255, 0.5); 
+}
 
 
 
@@ -234,7 +239,7 @@ body{
     </div>
    
     <div class="audio-container">
-        <audio id="page-sound" src="../images/swanlake.mp3" preload="auto"></audio>
+        <audio id="page-sound" src="../images/audio.mp3" preload="auto"></audio>
         <button class="play-button" id="play-button">Play Audio</button>
     </div>
 
