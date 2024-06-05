@@ -237,6 +237,30 @@ header .navigation a:hover::before{
                 grid-gap: 1em;
             }
         }
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.play-button {
+    margin-left: 10px;
+    padding: 1em 2.2em;
+    border: 2px solid #5135dc; /* Set the border explicitly */
+    border-radius: 3em;
+    background-color: transparent;
+    color: #5135dc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Add border-color transition */
+}
+
+.play-button:hover {
+    background-color: #5135dc;
+    color: #fff;
+    border-color: #5135dc; /* Change border color on hover */
+}
+
+
     </style>
 
 </head>
@@ -270,14 +294,16 @@ header .navigation a:hover::before{
             <button class="button-value" onclick="filterProduct('EnchantedLove')">Enchanted Love</button>
             <button class="button-value" onclick="filterProduct('WisdomAndWit')">Wisdom and Wit</button>
             <button class="button-value" onclick="filterProduct('KindnessAndCompassion')">Kindness and Compassion</button>
+         
+                <audio id="page-sound" src="images/swanlake.mp3" preload="auto"></audio>
+                <button class="play-button" id="play-button">Play Audio</button>
+            
         </div>
         <div id="products">
             <!-- qitu shtohen produktet prej javascriptit -->
         </div>
     </div>
 
-    
-<audio id="page-sound" src="images/swanlake.mp3" preload="auto" autoplay></audio>
     <script src="createCards.js"></script>
     <script src="functions.js"></script>
 </body>
