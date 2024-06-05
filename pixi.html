@@ -1,117 +1,271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Interaction PixiJS</title>
-  </head>
-  <body>
-    <script type="module">
-      import { Application, Assets, Container, Sprite, RenderTexture }  from 'https://cdn.skypack.dev/pixi.js';
-      (async () =>
-{
-    // Create a new application
-    const app = new Application();
-
-    // Initialize the application
-    await app.init({ resizeTo: window });
-
-    // Append the application canvas to the document body
-    document.body.appendChild(app.canvas);
-
-    const stageSize = {
-        width: app.screen.width,
-        height: app.screen.height,
-    };
-
-    // Create two render textures... these dynamic textures will be used to draw the scene into itself
-    let renderTexture = RenderTexture.create(stageSize);
-    let renderTexture2 = RenderTexture.create(stageSize);
-    const currentTexture = renderTexture;
-
-    // Create a new sprite that uses the render texture we created above
-    const outputSprite = new Sprite(currentTexture);
-
-    // Align the sprite
-    outputSprite.x = 400;
-    outputSprite.y = 300;
-    outputSprite.anchor.set(0.5);
-
-    // Add to stage
-    app.stage.addChild(outputSprite);
-
-    const stuffContainer = new Container();
-
-    stuffContainer.x = 400;
-    stuffContainer.y = 300;
-
-    app.stage.addChild(stuffContainer);
-
-    // Create an array of image ids..
-    const fruits = [
-        'https://pixijs.com/assets/rt_object_01.png',
-        'https://pixijs.com/assets/rt_object_02.png',
-        'https://pixijs.com/assets/rt_object_03.png',
-        'https://pixijs.com/assets/rt_object_04.png',
-        'https://pixijs.com/assets/rt_object_05.png',
-        'https://pixijs.com/assets/rt_object_06.png',
-        'https://pixijs.com/assets/rt_object_07.png',
-        'https://pixijs.com/assets/rt_object_08.png',
-    ];
-
-    // Load the textures
-    await Assets.load(fruits);
-
-    // Create an array of items
-    const items = [];
-
-    // Now create some items and randomly position them in the stuff container
-    for (let i = 0; i < 20; i++)
-    {
-        const item = Sprite.from(fruits[i % fruits.length]);
-
-        item.x = Math.random() * 400 - 200;
-        item.y = Math.random() * 400 - 200;
-        item.anchor.set(0.5);
-        stuffContainer.addChild(item);
-        items.push(item);
+<head>
+  <title>Interaction PixiJS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+    }
+    body {
+        background-color: pink;
     }
 
-    // Used for spinning!
-    let count = 0;
+    header {
+      z-index: 999;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 100px;
+      transition: 0.3s ease;
+    }
 
-    app.ticker.add(() =>
-    {
-        for (let i = 0; i < items.length; i++)
-        {
-            // rotate each item
-            const item = items[i];
+    header .brand {
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
 
-            item.rotation += 0.1;
+    header .navigation {
+      position: relative;
+    }
+
+    header .navigation a {
+      position: relative;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 500;
+      text-decoration: none;
+      margin-left: 30px;
+      transition: 0.3s ease;
+    }
+
+    header .navigation a::before {
+      content: '';
+      position: absolute;
+      background: #fff;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      transition: 0.3s ease;
+    }
+
+    header .navigation a:hover::before {
+      width: 100%;
+    }
+/* Add animation to navigation links */
+header .navigation a:hover {
+  transform: scale(1.1); /* Scale up slightly on hover */
+  color: #ff69b4; /* Change color on hover */
+}
+
+    button {
+      background-color: pink;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      font-size: 24px;
+    }
+
+    button::before {
+      content: '\2665';
+    }
+
+    button:hover {
+      background-color: #bd2585;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-family: 'cursive', sans-serif; /* Change font to cursive */
+    }
+
+    .more-content {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Add blur background */
+    .blur-background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      z-index: -1; /* Behind other content */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="brand">
+      WonderTales
+    </a>
+    <div class="navigation">
+      <a href="Index.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="explore.html">Explore</a>
+      <a href="fairytales.html">Fairy Tales</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+  </header>
+  <div class="blur-background"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script type="module">
+    import { Application, Assets, Sprite, Text, TextStyle } from 'https://cdn.skypack.dev/pixi.js';
+
+    (async () => {
+      // Create a new application
+      const app = new Application();
+
+      // Initialize the application
+      await app.init({ resizeTo: window, backgroundColor: 0x101030 });
+
+      // Append the application canvas to the document body
+      document.body.appendChild(app.view);
+
+      // Load the star texture
+      const starTexture = await Assets.load('https://pixijs.com/assets/star.png');
+
+      const starAmount = 1000;
+      let cameraZ = 0;
+      const fov = 20;
+      const baseSpeed = 0.025;
+      let speed = 0;
+      let warpSpeed = 0;
+      const starStretch = 5;
+      const starBaseSize = 0.05;
+
+      // Create the stars
+      const stars = [];
+
+      for (let i = 0; i < starAmount; i++) {
+        const star = {
+          sprite: new Sprite(starTexture),
+          z: 0,
+          x: 0,
+          y: 0,
+        };
+
+        star.sprite.anchor.x = 0.5;
+        star.sprite.anchor.y = 0.7;
+        randomizeStar(star, true);
+        app.stage.addChild(star.sprite);
+        stars.push(star);
+      }
+
+      function randomizeStar(star, initial) {
+        star.z = initial ? Math.random() * 2000 : cameraZ + Math.random() * 1000 + 2000;
+
+        // Calculate star positions with radial random coordinate so no star hits the camera.
+        const deg = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 50 + 1;
+
+        star.x = Math.cos(deg) * distance;
+        star.y = Math.sin(deg) * distance;
+      }
+
+      // Add 'Welcome, traveler of tales!' text to the center of the canvas
+      const message = new Text('WELCOME, TRAVELER OF TALES!', new TextStyle({ fill: '#fff', fontFamily: 'cursive', fontSize: 50 }));
+message.anchor.set(0.5);
+message.x = app.renderer.screen.width / 2;
+message.y = app.renderer.screen.height / 2;
+message.style.marginBottom = '200px'; // Add margin bottom here
+app.stage.addChild(message);
+
+      // Add advanced animation to the text
+     // Add advanced animation to the text
+// Add advanced animation to the text
+// Add advanced animation to the text
+app.ticker.add((delta) => {
+  message.rotation = Math.sin(performance.now() * 0.001) * 0.1;
+  message.y = app.renderer.screen.height / 2 + Math.sin(performance.now() * 0.002) * 20 - 60; // Float up and down with margin-bottom effect
+});
+
+
+
+      // Add 'Once upon a time...' text right under the 'Welcome, traveler of tales!' text
+      const additionalText = new Text('Test your fairytale knowledge...', new TextStyle({ fill: '#fff', fontFamily: 'Arial', fontSize: 30 }));
+      additionalText.anchor.set(0.5);
+      additionalText.x = app.renderer.screen.width / 2; // Start on-screen
+      additionalText.y = message.y + 50;
+      app.stage.addChild(additionalText);
+
+      // Float the text from left to right
+      gsap.from(additionalText, { duration: 2, x: -200, y: additionalText.y, ease: 'power1.inOut' });
+
+      // Add a button
+      const button = document.createElement('button');
+      button.textContent = 'Quizes';
+      button.style.position = 'absolute';
+      button.style.top = `${additionalText.y + 50}px`;
+      button.style.left = '50%';
+      button.style.transform = 'translateX(-50%)';
+      button.addEventListener('click', () => {
+        window.location.href = 'file:///C:/Users/Admin/Desktop/WondertalesWebMultimedia/WonderTales/quizes/quiz.html'; // Replace with your desired URL
+      });
+      document.body.appendChild(button);
+
+      // Change flight speed every 5 seconds
+      setInterval(() => {
+        warpSpeed = warpSpeed > 0 ? 0 : 1;
+      }, 5000);
+
+      // Listen for animate update
+      app.ticker.add((time) => {
+        // Simple easing. This should be changed to proper easing function when used for real.
+        speed += (warpSpeed - speed) / 20;
+        cameraZ += time.deltaTime * 10 * (speed + baseSpeed);
+        for (let i = 0; i < starAmount; i++) {
+          const star = stars[i];
+
+          if (star.z < cameraZ) randomizeStar(star);
+
+          // Map star 3d position to 2d with really simple projection
+          const z = star.z - cameraZ;
+
+          star.sprite.x = star.x * (fov / z) * app.renderer.screen.width + app.renderer.screen.width / 2;
+          star.sprite.y = star.y * (fov / z) * app.renderer.screen.width + app.renderer.screen.height / 2;
+
+          // Calculate star scale & rotation.
+          const dxCenter = star.sprite.x - app.renderer.screen.width / 2;
+          const dyCenter = star.sprite.y - app.renderer.screen.height / 2;
+          const distanceCenter = Math.sqrt(dxCenter * dxCenter + dyCenter * dyCenter);
+          const distanceScale = Math.max(0, (2000 - z) / 2000);
+
+          star.sprite.scale.x = distanceScale * starBaseSize;
+          // Star is looking towards center so that y axis is towards center.
+          // Scale the star depending on how fast we are moving, what the stretchfactor is
+          // and depending on how far away it is from the center.
+          star.sprite.scale.y
+            = distanceScale * starBaseSize
+            + (distanceScale * speed * starStretch * distanceCenter) / app.renderer.screen.width;
+          star.sprite.rotation = Math.atan2(dyCenter, dxCenter) + Math.PI / 2;
         }
-
-        count += 0.01;
-
-        // Swap the buffers ...
-        const temp = renderTexture;
-
-        renderTexture = renderTexture2;
-        renderTexture2 = temp;
-
-        // Set the new texture
-        outputSprite.texture = renderTexture;
-
-        // Twist this up!
-        stuffContainer.rotation -= 0.01;
-        outputSprite.scale.set(1 + Math.sin(count) * 0.2);
-
-        // Render the stage to the texture
-        // * The 'true' clears the texture before the content is rendered *
-        app.renderer.render({
-            container: app.stage,
-            target: renderTexture2,
-            clear: false,
-        });
-    });
-})();
-    </script>
-  </body>
+      });
+    })();
+  </script>
+</body>
 </html>
