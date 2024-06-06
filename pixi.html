@@ -10,7 +10,7 @@
       font-family: 'poppins', sans-serif;
     }
     body {
-        background-color: pink;
+        background-color: #101030;
     }
 
     header {
@@ -65,7 +65,7 @@
 /* Add animation to navigation links */
 header .navigation a:hover {
   transform: scale(1.1); /* Scale up slightly on hover */
-  color: #ff69b4; /* Change color on hover */
+  color: #b086a1; /* Change color on hover */
 }
 
     button {
@@ -81,7 +81,7 @@ header .navigation a:hover {
     }
 
     button:hover {
-      background-color: #bd2585;
+      background-color: #b086a1;
     }
 
     .content {
@@ -192,31 +192,26 @@ header .navigation a:hover {
 message.anchor.set(0.5);
 message.x = app.renderer.screen.width / 2;
 message.y = app.renderer.screen.height / 2;
-message.style.marginBottom = '200px'; // Add margin bottom here
+message.style.marginBottom = '200px'; 
 app.stage.addChild(message);
 
-      // Add advanced animation to the text
-     // Add advanced animation to the text
-// Add advanced animation to the text
-// Add advanced animation to the text
+
 app.ticker.add((delta) => {
   message.rotation = Math.sin(performance.now() * 0.001) * 0.1;
-  message.y = app.renderer.screen.height / 2 + Math.sin(performance.now() * 0.002) * 20 - 60; // Float up and down with margin-bottom effect
+  message.y = app.renderer.screen.height / 2 + Math.sin(performance.now() * 0.002) * 20 - 60; 
 });
 
-
-
-      // Add 'Once upon a time...' text right under the 'Welcome, traveler of tales!' text
+ 
       const additionalText = new Text('Test your fairytale knowledge...', new TextStyle({ fill: '#fff', fontFamily: 'Arial', fontSize: 30 }));
       additionalText.anchor.set(0.5);
-      additionalText.x = app.renderer.screen.width / 2; // Start on-screen
+      additionalText.x = app.renderer.screen.width / 2; 
       additionalText.y = message.y + 50;
       app.stage.addChild(additionalText);
 
       // Float the text from left to right
       gsap.from(additionalText, { duration: 2, x: -200, y: additionalText.y, ease: 'power1.inOut' });
 
-      // Add a button
+      
       const button = document.createElement('button');
       button.textContent = 'Quizes';
       button.style.position = 'absolute';
@@ -224,7 +219,7 @@ app.ticker.add((delta) => {
       button.style.left = '50%';
       button.style.transform = 'translateX(-50%)';
       button.addEventListener('click', () => {
-        window.location.href = 'file:///C:/Users/Admin/Desktop/WondertalesWebMultimedia/WonderTales/quizes/quiz.html'; // Replace with your desired URL
+      window.location.href = 'quizes/quiz.html';
       });
       document.body.appendChild(button);
 
