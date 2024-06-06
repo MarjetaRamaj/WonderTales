@@ -2,20 +2,31 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>WonderTales</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"  />
-   
-    <style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
+        <style>
     *{
         padding: 0;
         margin: 0;
     }
+    .canvas{
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+
     .controls{
         width: 100vw;
         height: 100vh;
         position: absolute;
         font-family: 'Parisienne', cursive;
+        z-index: 1000;
     }
     h2{
         position: absolute;
@@ -28,11 +39,37 @@
     }
     h2:before{
         content: '';
-        
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        bottom: 30%;
+        height: calc(18px + 0.5vw);
+        background-color: #000;
+        z-index: -1;
+    }
+    .control-r,
+    .control-l {
+        background: none;
+        border: none;
+        position: absolute;
+        cursor: pointer;
+        font-family: inherit;
+        color: #fff;
+        font-size: calc(6rem + 10vh);
+        text-shadow: 2px 4px 2px rgba(0, 0, 0, 1);
+    }
+    .control-r{
+        right: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .control-l{
+        left: 2%;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
-    </style>
-   
+</style>
     </head>
     <body>
         <div class="controls">
@@ -40,5 +77,9 @@
             <button class="control-r">&gt;</button>
             <button class="control-l">&lt;</button>
         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.0.0/pixi.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pixi-filters@latest/dist/pixi-filters.js"></script>
+        <script src="pixislider.js"></script>
     </body>
 </html>
