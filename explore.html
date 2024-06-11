@@ -5,313 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WonderTales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
-    <link rel="stylesheet" href="slider.css">
-    <!--<link rel="stylesheet" href="style.css">-->
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Poppins');
-    @import url('https://fonts.googleapis.com/css?family=Sofia');
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/explore.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.10/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        background-color: #f4f4f4;
-    }
-
-    header{
-    z-index: 999;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 100px;
-    transition: 0.3s ease;
-
-}
-header .brand{
-    color:#fff;
-    font-size: 1.5em;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-header .navigation{
-    position: relative;
-}
-header .navigation a{
-    position: relative;
-    color: #fff;
-    font-size: 1em;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 30px;
-    transition: 0.3s ease;
-}
-
-header .navigation a::before{
-    content: '';
-    position: absolute;
-    background: #fff;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    transition: 0.3s ease;
-}
-
-header .navigation a:hover::before{
-    width: 100%;
-}
-
-    .title {
-        text-align: center;
-        margin-top: 150px;
-        color: #fff;
-        position: relative;
-    }
-
-    .title span {
-        display: inline-block;
-        position: relative;
-        font-family: "Sofia", sans-serif;
-        font-size: 36px;
-        text-shadow: 1px 1px 1px #ababab;
-    }
-
-    .title span::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #fff;
-        transform: scaleX(0);
-        transform-origin: bottom right;
-        transition: transform 0.3s ease;
-    }
-
-    .title span:hover::before {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }
-
-    .wrapper {
-        padding: 10px 10%;
-        margin-top: 30px;
-    }
-
-    #card-area {
-        padding: 25px 0;
-    }
-
-    .box-area {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-gap: 50px;
-        margin-top: 50px;
-    }
-
-    .box1 {
-        border-radius: 10px;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .box1 img {
-        width: 100%;
-        border-radius: 10px;
-        height: 100%;
-        display: block;
-        transition: transform 0.5s;
-       
-    }
-
-
-
-
-    .overlay {
-        height: 0;
-        width: 100%;
-        background: linear-gradient(transparent, #76ABDF 58%);
-        border-radius: 10px;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 40px;
-        text-align: center;
-        font-size: 14px;
-        transition: height 0.5s;
-    }
-
-    .overlay p {
-        color: #fff;
-    }
-
-    .overlay h3 {
-        font-weight: 500;
-        margin-bottom: 5px;
-        margin-top: 80%;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 25px;
-        color: #fff;
-        letter-spacing: 2px;
-    }
-
-    .overlay a {
-        margin-top: 10px;
-        color: #1c1c1c;
-        text-decoration: none;
-        font-size: 14px;
-        background: #fff;
-        border-radius: 50px;
-        text-align: center;
-        padding: 5px 15px;
-    }
-
-    .box1:hover img {
-        transform: scale(1.2);
-    }
-
-    .box1:hover .overlay {
-        height: 100%;
-    }
-
-    .video-container1 {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        overflow: hidden;
-    }
-
-    .video-container1 video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .text-overlay1 {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-    }
-
-    .text-overlay1 h2 {
-        font-size: 25px;
-        font-family: "Sofia", sans-serif;
-    }
-
-    .text-overlay1 p {
-        font-size: 15px;
-        font-family: "Sofia", sans-serif;
-    }
-
-    .footer {
-        background-color: #111222;
-        color: #fff;
-        padding: 50px 0;
-        text-align: center;
-        margin-top: auto;
-        width: 100%;
-    }
-
-    .footer h3 {
-        color: #fff;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .footer p {
-        color: #ccc;
-    }
-
-    .footer-left,
-    .footer-center,
-    .footer-right {
-        display: inline-block;
-        vertical-align: top;
-        width: 30%;
-        padding: 0 10px;
-        box-sizing: border-box;
-    }
-
-    .footer-center ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .footer-center ul li {
-        margin-bottom: 10px;
-    }
-
-    .footer-center ul li a {
-        color: #ccc;
-        text-decoration: none;
-    }
-
-    .footer-bottom {
-        margin-top: 30px;
-        border-top: 1px solid #333;
-        padding-top: 20px;
-        font-size: 14px;
-    }
-
-    .social-links a {
-        color: #fff;
-        font-size: 24px;
-        margin-right: 10px;
-    }
-
-    .video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1;
-    }
-
-    .video-container video {
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-</style>
 </head>
 <body>
     <header>
@@ -577,6 +275,71 @@ header .navigation a:hover::before{
             </div>
         </div>
     </div>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.10/pixi.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var app = new PIXI.Application(window.innerWidth, window.innerHeight);
+            document.body.appendChild(app.view);
+    
+            app.stage.interactive = true;
+            var posX, displacementSprite, displacementFilter, bg, vx;
+            var container = new PIXI.Container();
+            app.stage.addChild(container);
+    
+            PIXI.Loader.shared.add("images/cinderella.png").add("images/pixi.jpg").load(setup);
+    
+            function setup() {
+                posX = app.renderer.width / 2;
+                displacementSprite = new PIXI.Sprite(PIXI.Loader.shared.resources["images/cinderella.png"].texture);
+                displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+                displacementSprite.anchor.set(0.5);
+                displacementSprite.x = app.renderer.width / 2;
+                displacementSprite.y = app.renderer.height / 2;
+                vx = displacementSprite.x;
+    
+                app.stage.addChild(displacementSprite);
+                container.filters = [displacementFilter];
+                displacementFilter.scale.x = 0;
+                displacementFilter.scale.y = 0;
+    
+                bg = new PIXI.Sprite(PIXI.Loader.shared.resources["images/pixi.jpg"].texture);
+                bg.width = app.renderer.width; // Set the background width to fill the entire screen
+                bg.height = app.renderer.height;
+                container.addChild(bg);
+    
+                app.stage.on('pointermove', onPointerMove);
+                loop();
+            }
+    
+            function onPointerMove(eventData) {
+                posX = eventData.data.global.x;
+            }
+    
+            function loop() {
+                requestAnimationFrame(loop);
+                vx += (posX - displacementSprite.x) * 0.045;
+                displacementSprite.x = vx;
+                var disp = Math.floor(posX - displacementSprite.x);
+                if (disp < 0) disp = -disp;
+                var fs = map(disp, 0, 500, 0, 120);
+                disp = map(disp, 0, 500, 0.1, 0.6);
+                displacementSprite.scale.x = disp; // Stretch the photo horizontally
+                displacementFilter.scale.x = fs;
+            }
+    
+            function map(n, start1, stop1, start2, stop2) {
+                var newval = (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+                return newval;
+            }
+        </script>
+    </body>
+    </html>
+    
     <footer class="footer">
         <div class="footer-left">
             <h3>WonderTales</h3>
